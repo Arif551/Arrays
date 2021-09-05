@@ -1,0 +1,17 @@
+      int k=0,s=1;
+        int n = arr.length;
+        while(k<n){
+             if(k==n-1){
+                s++;
+                break;
+            }
+            int p=arr[k];
+            int m=arr[k+1];
+           
+            for(int i=k+1;i<p;p++){
+               m = Math.max(m,arr[k+1]);
+            }
+            k=k+m;
+            s++;
+        }
+        return s;
