@@ -1,0 +1,20 @@
+class Solution {
+    public int[][] merge(int[][] intervals) {
+       Arrays.sort(intervals, (a, b) -> Double.compare(a[0], b[0]));
+       int arr[][] = new int[intervals.length][2];
+        arr [0] = Arrays.copyOf(intervals[0],2);
+        int k = 0;
+        int i = 1;
+        while(i<intervals.length){
+            if(arr[k][1]>=intervals[i][0]){
+                arr[k][1]=Math.max(arr[k][1],intervals[i][1]);
+            }else{
+                k++;
+                arr[k] = Arrays.copyOf(intervals[i],2);
+            }
+            i++;
+        }
+        
+        return Arrays.copyOf(arr,k+1);
+    }
+}
